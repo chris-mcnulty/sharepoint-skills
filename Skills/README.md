@@ -26,13 +26,15 @@ Skills follow the [agentskills.io specification](https://agentskills.io/specific
 
 ## Creating a Skill
 
-A skill is a folder containing a single `SKILL.md` file. The folder name must match the `name` field in the frontmatter exactly.
+A skill is a folder containing a `SKILL.md` and a `README.md`. The folder name must match the `name` field in the frontmatter exactly.
 
-**Where it goes in this repo:** `Skills/<skill-name>/SKILL.md`
+**Where it goes in this repo:** `Skills/<skill-name>/`
 
-**Where it goes in SharePoint:** `Skills/<skill-name>/SKILL.md` (upload the skill folder directly)
+**Where it goes in SharePoint:** `Skills/<skill-name>/SKILL.md` (upload the skill folder directly — the README stays in the repo for documentation)
 
-**Minimal example — `Skills/summarize-page/SKILL.md`:**
+**Required files:**
+
+**`SKILL.md`** — the skill instructions:
 
 ```markdown
 ---
@@ -50,13 +52,31 @@ description: Summarizes a SharePoint page in 3 bullet points.
 3. Return a bulleted summary, each bullet no longer than one sentence.
 ```
 
-That's a complete, valid skill. The frontmatter tells the agent when to activate it; the body tells it what to do.
+**`README.md`** — description and contribution credits:
+
+```markdown
+# Summarize Page
+
+Short description of what the skill does and when to use it.
+
+## What you get
+
+- Bullet list of outputs and outcomes
+
+## Contribution
+
+| Property | Value |
+|---|---|
+| Author | Your Name |
+| GitHub | [your-handle](https://github.com/your-handle) |
+| First published | Month YYYY |
+```
 
 ## Contributing a Skill
 
 Skills work best when they are:
 - **Focused** — one capability per file
 - **Self-contained** — no external dependencies required to use it
-- **Documented** — frontmatter with `name` and `description` so agents can self-select the skill
+- **Documented** — `SKILL.md` frontmatter for agent activation, `README.md` for human readers and contribution credits
 
-To contribute, create a feature branch, add your skill folder to the `Skills/` directory following the naming conventions above, and submit a pull request with a description of what the skill does.
+To contribute, create a feature branch, add your skill folder to the `Skills/` directory with both required files, and submit a pull request with a short description of what the skill does.

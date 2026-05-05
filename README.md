@@ -26,8 +26,10 @@ A curated library of AI skills for the latest AI features in Microsoft 365 Share
 Contributions and corrections are welcome!
 
 1. Fork the repo and create a branch: `git checkout -b skill/your-skill-name`
-2. Add your skill folder under `Skills/` (e.g., `Skills/my-skill/SKILL.md`)
-3. Ensure the `name` field in frontmatter matches the folder name exactly
+2. Add your skill folder under `Skills/` (e.g., `Skills/my-skill/`)
+3. Include the following files in your skill folder:
+   - `SKILL.md` — the skill instructions with `name` and `description` frontmatter (folder name must match `name` exactly)
+   - `README.md` — description of what the skill does, what you get, and a contribution table with your name, GitHub handle, and publish date
 4. Open a pull request with a short description of what the skill does
 
 ---
