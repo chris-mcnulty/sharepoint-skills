@@ -26,12 +26,8 @@ A curated library of AI skills for the latest AI features in Microsoft 365 Share
 Contributions and corrections are welcome!
 
 1. Fork the repo and create a branch: `git checkout -b skill/your-skill-name`
-2. Add your skill folder under `Skills/` (e.g., `Skills/my-skill/`)
-3. Include the following files in your skill folder:
-   - `SKILL.md` — the skill instructions with `name` and `description` frontmatter (folder name must match `name` exactly)
-   - `README.md` — description of what the skill does, what you get, and a contribution table with your name, GitHub handle, and publish date
-   - `assets/sample.json` — metadata for the PnP community samples gallery
-   - `assets/preview.png` — a screenshot showing the skill's output (used in the samples gallery)
+2. Add your skill folder under the appropriate category in `Skills/<category>/<skill-name>/`
+3. Follow the full contribution standards in [Skills/README.md](./Skills/README.md#creating-a-skill) — covers required files, naming conventions, category guidance, file templates (including `sample.json`), and a pre-submission checklist
 4. Open a pull request with a short description of what the skill does
 
 ---

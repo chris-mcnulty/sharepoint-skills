@@ -33,26 +33,54 @@ Skills follow the [agentskills.io specification](https://agentskills.io/specific
 
 ## Creating a Skill
 
-A skill is a folder containing a `SKILL.md` and a `README.md`. The folder name must match the `name` field in the frontmatter exactly.
+A skill is a folder containing a `SKILL.md` plus supporting files. The folder lives inside a category subfolder and the folder name must match the `name` field in the `SKILL.md` frontmatter exactly.
 
-**Where it goes in this repo:** `Skills/<skill-name>/`
+### Where it goes
 
-**Where it goes in SharePoint:** `Skills/<skill-name>/SKILL.md` (upload the skill folder directly — the README stays in the repo for documentation)
+**In this repo:** `Skills/<category>/<skill-name>/`
 
-**Required files per skill folder:**
+**In SharePoint:** `Skills/<skill-name>/SKILL.md` — when uploading, take just the skill folder (not the category wrapper). Skip the `demo/` subfolder if there is one.
+
+### Categories
+
+Pick the category that best fits what the skill operates on or produces:
+
+| Category | For skills that... |
+|---|---|
+| `ai/` | Are meta-skills — patterns, evaluation, self-improvement |
+| `documents/` | Create or transform structured documents |
+| `knowledge/` | Manage knowledge bases, research, expert routing |
+| `libraries/` | Act on SharePoint document libraries (classify, organize, clean up) |
+| `operations/` | Run business workflows, reports, or site-level analytics |
+| `styling/` | Apply visual themes via list/column/view formatting |
+| `writing/` | Generate or edit prose content |
+
+If none fit, propose a new category in your PR description.
+
+### Naming convention
+
+- Folder name: **kebab-case** — lowercase, dash-separated (`organize-library`, not `OrganizeLibrary` or `organize_library`)
+- The folder name must match the `name` field in `SKILL.md` exactly
+- Be specific — avoid generic names like `tool`, `helper`, `processor`
+
+### Required files
 
 | File | Purpose |
 |---|---|
 | `SKILL.md` | Skill instructions with `name` and `description` frontmatter |
 | `README.md` | Description, what you get, and contribution credits |
 | `assets/sample.json` | Metadata for the PnP community samples gallery |
-| `assets/preview.png` | Screenshot of the skill's output for the samples gallery |
+| `assets/preview.png` | Screenshot of the skill's output for the samples gallery (recommended 1280×720, 16:9, PNG) |
 
-**Optional — demo content:**
+### Optional — demo content
 
-If your skill benefits from a hands-on demo, add a `demo/` subfolder inside your skill folder. Include a `README.md` with setup steps and a `sample-files/` folder with the demo content. When users upload the skill to SharePoint, they can skip the `demo/` subfolder — only `SKILL.md` is required for the skill to run.
+If your skill benefits from a hands-on demo, add a `demo/` subfolder. Include a `README.md` with setup steps and a `sample-files/` folder with the content. Users uploading the skill to SharePoint can skip `demo/` — only `SKILL.md` is required for the skill to run.
 
-**`SKILL.md`** — the skill instructions:
+---
+
+## File templates
+
+### `SKILL.md`
 
 ```markdown
 ---
@@ -70,7 +98,7 @@ description: Summarizes a SharePoint page in 3 bullet points.
 3. Return a bulleted summary, each bullet no longer than one sentence.
 ```
 
-**`README.md`** — description and contribution credits:
+### `README.md`
 
 ```markdown
 # Summarize Page
@@ -90,11 +118,66 @@ Short description of what the skill does and when to use it.
 | First published | Month YYYY |
 ```
 
-## Contributing a Skill
+### `assets/sample.json`
 
-Skills work best when they are:
-- **Focused** — one capability per file
-- **Self-contained** — no external dependencies required to use it
-- **Documented** — `SKILL.md` frontmatter for agent activation, `README.md` for human readers and contribution credits
+```json
+[
+  {
+    "name": "pnp-sharepoint-skills-summarize-page",
+    "source": "pnp",
+    "title": "Summarize Page",
+    "shortDescription": "Summarizes a SharePoint page in 3 bullet points.",
+    "url": "https://github.com/pnp/sharepoint-skills/tree/main/Skills/documents/summarize-page",
+    "longDescription": [
+      "Longer description spanning one or more paragraphs.",
+      "Each array entry is rendered as a separate paragraph in the gallery."
+    ],
+    "creationDateTime": "2026-05-07",
+    "updateDateTime": "2026-05-07",
+    "products": [
+      "SharePoint",
+      "Microsoft 365 Copilot"
+    ],
+    "metadata": [
+      { "key": "SAMPLE-TYPE", "value": "SharePoint-AI-Skill" },
+      { "key": "SKILL-CATEGORY", "value": "Document Management" }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://github.com/pnp/sharepoint-skills/raw/main/Skills/documents/summarize-page/assets/preview.png",
+        "alt": "Summarize Page skill in action"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "your-handle",
+        "pictureUrl": "https://github.com/your-handle.png",
+        "name": "Your Name"
+      }
+    ],
+    "references": [
+      {
+        "name": "agentskills.io specification",
+        "description": "The specification that SharePoint AI skills follow for installation and discovery.",
+        "url": "https://agentskills.io/specification"
+      }
+    ]
+  }
+]
+```
 
-To contribute, create a feature branch, add your skill folder to the `Skills/` directory with all four required files, and submit a pull request with a short description of what the skill does.
+---
+
+## Pre-submission checklist
+
+Before opening your pull request, verify:
+
+- [ ] Skill folder is inside the correct category subfolder (`Skills/<category>/<skill-name>/`)
+- [ ] Folder name uses kebab-case and matches the `name` field in `SKILL.md` exactly
+- [ ] `SKILL.md` has `name` and `description` in the frontmatter
+- [ ] `README.md` follows the template (description, "What you get", Contribution table)
+- [ ] `assets/sample.json` exists with the `url` and `thumbnails[0].url` pointing to your skill's actual path
+- [ ] `assets/preview.png` exists and shows the skill's actual output (not a logo or placeholder)
+- [ ] Skills work best when they are **focused** (one capability), **self-contained** (no external dependencies), and **discoverable** (clear `description` with trigger phrases)
