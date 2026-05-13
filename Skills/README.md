@@ -6,7 +6,7 @@ Some skills also include a `demo/` subfolder containing sample content you can u
 
 ## Quick links
 
-- **Browse skills:** [Libraries](#libraries) · [Operations](#operations)
+- **Browse skills:** [Libraries](#libraries) · [Operations](#operations) · [Styling](#styling)
 - **Install:** [Installing a Skill](#installing-a-skill)
 - **Contribute:** [Creating a Skill](#creating-a-skill) · [Categories](#categories) · [Required files](#required-files) · [File templates](#file-templates) · [✅ Pre-submission checklist](#pre-submission-checklist)
 
@@ -24,7 +24,26 @@ Some skills also include a `demo/` subfolder containing sample content you can u
 
 | Folder | Skill | Description |
 |---|---|---|
+| [invoice-po-reconciliation/](./operations/invoice-po-reconciliation/) | Invoice ↔ PO Reconciliation | Reconciles one or more user-selected invoice files against matching purchase orders. Compares totals, flags discrepancies, writes reconciliation status back to invoice metadata, and returns a formatted summary table. |
 | [site-storage-heatmap/](./operations/site-storage-heatmap/) | Site Storage Heatmap | Generates an interactive HTML site map showing storage breakdown and hot/cold activity heatmap across all document libraries, lists, and site pages. Includes site-wide summary stacked bars and per-library click-through drill-downs. Saves the file to the site's document library and navigates the user directly to it. |
+
+## Styling
+
+The styling category contains one engine (`list-styling`) and a set of style token skills that the engine consumes. Pick a style token to define the look, then run `list-styling` to apply it.
+
+| Folder | Skill | Description |
+|---|---|---|
+| [list-styling/](./styling/list-styling/) | List Styling Engine | Transforms SharePoint lists and document libraries into fully art-directed views using column, view, and row formatting. Pairs with any of the style token skills below to define the look. |
+| [style-bento/](./styling/style-bento/) | Style: Bento | Bento-inspired horizontal compartment cards with warm earth tones, compact uppercase badges, and visible dividers. Triggers: *bento, warm style, earth tones, muted colors.* |
+| [style-blueprint/](./styling/style-blueprint/) | Style: Blueprint | Engineering-drawing aesthetic with a monochromatic blue palette, double-ring rubber-stamp badges, and an ultra-compact two-line spec-sheet card. Triggers: *blueprint, technical drawing, engineering, schematic, spec sheet.* |
+| [style-figma-clean/](./styling/style-figma-clean/) | Style: Figma Clean | Polished professional aesthetic with self-colored badge borders and thin precise progress bars. Triggers: *figma, clean style, polished, professional.* |
+| [style-glassmorphism/](./styling/style-glassmorphism/) | Style: Glassmorphism | Soft pill badges with no borders, thin bars, and an airy frosted-glass aesthetic. Triggers: *glassmorphism, frosted glass, glass look, soft modern.* |
+| [style-high-contrast/](./styling/style-high-contrast/) | Style: High Contrast | Maximum contrast ratios, larger fonts, thicker weights, and text indicators for WCAG accessibility compliance. Triggers: *high contrast, accessible, accessibility, WCAG, easy to read.* |
+| [style-monochrome/](./styling/style-monochrome/) | Style: Monochrome | A single slate-blue hue from light to dark replacing traffic-light colors — calm, corporate, tonal. Triggers: *monochrome, single color, one hue, corporate design system, all blue, tonal.* |
+| [style-neobrutalism/](./styling/style-neobrutalism/) | Style: Neobrutalism | Thick black borders, saturated colors, uppercase text, and hard offset shadows. Two-panel cards with red flip on overdue. Triggers: *neobrutalism, brutalist, bold borders, chunky style.* |
+| [style-pastel/](./styling/style-pastel/) | Style: Pastel | Soft candy colors with light tinted badge backgrounds and dark text — friendly and approachable. Triggers: *pastel, soft colors, candy, light badges, friendly style, approachable.* |
+| [style-retro/](./styling/style-retro/) | Style: Retro Memphis | Hot pink, electric blue, yellow, and teal with colored borders — bold, playful, nostalgic. Triggers: *retro, memphis, 80s, 90s, colorful, playful, bright colors.* |
+| [style-terminal/](./styling/style-terminal/) | Style: Terminal | Dark badges with neon green accents and matrix-style progress bars. Triggers: *terminal, hacker, dark mode, matrix, developer style, green on black.* |
 
 ---
 
